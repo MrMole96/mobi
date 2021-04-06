@@ -25,13 +25,19 @@ export const addHouseAsync = (house) => {
   };
 };
 
-export const removeHouse = (id) => {
-  fetch(`http://mobile-reality-backend.sadek.usermd.net/houses/${id}`, {
-    method: "DELETE",
-  });
+const removeHouse2 = (id) => {
   return {
     type: "REMOVE_HOUSE",
     payload: { id },
+  };
+};
+
+export const removeHouse = (id) => {
+  return async (dispatch) => {
+    await fetch(`http://mobile-reality-backend.sadek.usermd.net/houses/${id}`, {
+      method: "DELETE",
+    });
+    dispatch(removeHouse2(id));
   };
 };
 

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { removeHouse } from "../redux/actions";
 
-const House = ({ dispatch, match, history }) => {
-  console.log(match);
+const House = ({ dispatch, match, history, removeHouse }) => {
   const [house, setHouse] = useState({});
 
   useEffect(() => {
@@ -18,7 +17,7 @@ const House = ({ dispatch, match, history }) => {
 
   const removeHandler = (id) => {
     removeHouse(id);
-    history.push('/houses');
+    history.push("/houses");
   };
   return (
     <div>
