@@ -5,16 +5,8 @@ import { Link } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <div className="row" style={{ display: "flex", flexDirection: "row" }}>
-        <div
-          className="block"
-          style={{
-            flex: "1 1 0px",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignContent: "center",
-          }}
-        >
+      <div className="row">
+        <div className="block">
           <div className="header">
             <h2 className="header-title">Kilka slow o nas</h2>
             <span className="header-subtitle">czyli kim jestesmy</span>
@@ -46,19 +38,11 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="row" style={{ display: "flex", flexDirection: "row" }}>
+      <div className="row">
         <div className="div-img">
           <div className="div-img-text">zzzzzzz</div>
         </div>
-        <div
-          className="block"
-          style={{
-            flex: "1 1 0px",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignContent: "center",
-          }}
-        >
+        <div className="block">
           <div className="header">
             <h2 className="header-title">Kilka slow o nas</h2>
             <span className="header-subtitle">czyli kim jestesmy</span>
