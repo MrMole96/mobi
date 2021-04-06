@@ -36,3 +36,57 @@
     transform: rotate(360deg);
   }
 }
+
+.small-div-img {
+  display: inline-block;
+  position: relative;
+  height: 300px;
+  width: 400px;
+  background-image: url("http://www.funnycatpix.com/_pics/Big_Cat_Eyes.jpg");
+}
+
+.img {
+  max-width: 280px;
+  width: "100%";
+}
+.btn-more {
+  display: inline-block;
+  padding: 10px;
+  color: #61dafb;
+  background-color: #ffffff;
+  border: 1px solid #61dafb;
+}
+
+.div-img {
+  position: relative;
+  height: 600px;
+  width: 800px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("http://www.funnycatpix.com/_pics/Big_Cat_Eyes.jpg");
+}
+.div-img-text {
+  position: absolute;
+  color: #ffffff;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header-subtitle {
+  color: #61dafb;
+  text-transform: uppercase;
+}
+
+.header-title {
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+.header {
+  margin-bottom: 3rem;
+}
+
+.container-text {
+  padding: 0px 4rem;
+  margin-bottom: 3rem;
+}
