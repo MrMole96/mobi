@@ -33,9 +33,9 @@ function App() {
               Lorem Ipsum.
             </p>
           </div>
-          <div className="btn-more">
-            <Link to="/houses">Zobacz wiecej</Link>
-          </div>
+          <Link to="/houses">
+            <div className="btn-more">Zobacz wiecej</div>
+          </Link>
         </div>
         <div style={{ flex: "1 1 0px", flexWrap: "wrap" }}>
           <div className="small-div-img" />
@@ -77,7 +77,9 @@ function App() {
               Lorem Ipsum.
             </p>
           </div>
-          <div className="btn-more">Zobacz wiecej</div>
+          <Link to="/houses">
+            <div className="btn-more">Zobacz wiecej</div>
+          </Link>
         </div>
       </div>
     </div>

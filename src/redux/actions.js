@@ -1,4 +1,4 @@
-export const addHouse = (house) => {
+const addHouse = (house) => {
   return {
     type: "ADD_HOUSE",
     payload: house,

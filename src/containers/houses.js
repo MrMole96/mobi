@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+
 import { fetchAsync, removeHouse } from "../redux/actions";
 
 const Houses = ({ houses, fetchAsync, history, removeHouse }) => {
@@ -20,14 +20,16 @@ const Houses = ({ houses, fetchAsync, history, removeHouse }) => {
           return (
             <li key={house._id}>
               {house.description}
-              <Link to={`houses/${house._id}`}>Details</Link>
+              <button onClick={() => history.push(`houses/${house._id}`)}>
+                Details
+              </button>
               <button onClick={() => removeHandler(house._id)}>Remove</button>
             </li>
           );
         })}
       </ul>
 
-      <Link to="houses/add">Add</Link>
+      <button onClick={() => history.push("houses/add")}>Add</button>
     </div>
   );
 };

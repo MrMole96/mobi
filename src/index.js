@@ -24,9 +24,7 @@ ReactDOM.render(
             render={(props) => <AddHouse {...props} />}
           />
           <Route path="/houses/:id" render={(props) => <House {...props} />} />
-          <Route path="/houses">
-            <Houses />
-          </Route>
+          <Route path="/houses" render={(props) => <Houses {...props} />} />
           <Route path="/">
             <App />
           </Route>
