@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { addHouseAsync } from "../redux/actions";
+import { useDispatch } from "react-redux";
+import { addAsync } from "../redux/houseSlice";
 
-const AddHouse = ({ dispatch, history, addHouseAsync }) => {
+const AddHouse = ({ history }) => {
+  const dispatch = useDispatch();
+
   const [values, setValues] = useState({
     description: "",
     address: "",
@@ -20,7 +22,7 @@ const AddHouse = ({ dispatch, history, addHouseAsync }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addHouseAsync(values);
+    dispatch(addAsync(values));
     history.push("/houses");
   };
   return (
@@ -60,4 +62,4 @@ const AddHouse = ({ dispatch, history, addHouseAsync }) => {
   );
 };
 
-export default connect(null, { addHouseAsync })(AddHouse);
+export default AddHouse;

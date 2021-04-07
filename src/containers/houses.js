@@ -1,32 +1,35 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getAsync, removeAsync } from "../redux/houseSlice";
 
-import { fetchAsync, removeHouse } from "../redux/actions";
+const Houses = ({ history }) => {
+  const houses = useSelector((state) => state.houseReducer.houses);
+  const dispatch = useDispatch();
 
-const Houses = ({ houses, fetchAsync, history, removeHouse }) => {
   useEffect(() => {
-    fetchAsync();
+    dispatch(getAsync());
   }, []);
 
   const removeHandler = (id) => {
-    removeHouse(id);
+    dispatch(removeAsync(id));
   };
-  console.log("houses", houses);
+
   return (
     <div>
       <h3>List of houses</h3>
       <ul>
-        {houses.map((house) => {
-          return (
-            <li key={house._id}>
-              {house.description}
-              <button onClick={() => history.push(`houses/${house._id}`)}>
-                Details
-              </button>
-              <button onClick={() => removeHandler(house._id)}>Remove</button>
-            </li>
-          );
-        })}
+        {houses &&
+          houses.map((house) => {
+            return (
+              <li key={house._id}>
+                {house.description}
+                <button onClick={() => history.push(`houses/${house._id}`)}>
+                  Details
+                </button>
+                <button onClick={() => removeHandler(house._id)}>Remove</button>
+              </li>
+            );
+          })}
       </ul>
 
       <button onClick={() => history.push("houses/add")}>Add</button>
@@ -34,10 +37,4 @@ const Houses = ({ houses, fetchAsync, history, removeHouse }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    houses: state.houses,
-  };
-};
-
-export default connect(mapStateToProps, { fetchAsync, removeHouse })(Houses);
+export default Houses;

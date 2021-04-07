@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { removeHouse } from "../redux/actions";
+import { useDispatch } from "react-redux";
+import { removeAsync } from "../redux/houseSlice";
 
-const House = ({ dispatch, match, history, removeHouse }) => {
+const House = ({ match, history }) => {
   const [house, setHouse] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(
@@ -16,7 +17,7 @@ const House = ({ dispatch, match, history, removeHouse }) => {
   }, []);
 
   const removeHandler = (id) => {
-    removeHouse(id);
+    dispatch(removeAsync(id));
     history.push("/houses");
   };
   return (
@@ -27,4 +28,4 @@ const House = ({ dispatch, match, history, removeHouse }) => {
     </div>
   );
 };
-export default connect(null, { removeHouse })(House);
+export default House;

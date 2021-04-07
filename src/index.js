@@ -2,17 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+
 import reportWebVitals from "./reportWebVitals";
-import { createStore, applyMiddleware } from "redux";
-import { houseReducer } from "./redux/reducers";
 import { Provider } from "react-redux";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import thunk from "redux-thunk";
+import store from "./store";
+
 import Houses from "./containers/houses";
 import House from "./components/house";
 import AddHouse from "./containers/addHouse";
 
-const store = createStore(houseReducer, applyMiddleware(thunk));
+// const store = createStore(houseReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
