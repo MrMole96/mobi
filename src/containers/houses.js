@@ -8,7 +8,7 @@ const Houses = ({ history }) => {
 
   useEffect(() => {
     dispatch(getAsync());
-  }, []);
+  }, [dispatch]);
 
   const removeHandler = (id) => {
     dispatch(removeAsync(id));

@@ -1,76 +1,55 @@
+.texts-item {
+  grid-area: texts;
+  display: grid;
+}
+.imgs-item {
+  display: grid;
+  grid-area: imgs;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+}
+.bigimg-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50%;
+  grid-area: bigimg;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("http://www.funnycatpix.com/_pics/Big_Cat_Eyes.jpg");
+}
+.texts-item2 {
+  grid-area: texts2;
+}
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50%;
+  grid-template-areas:
+    "texts imgs"
+    "bigimg texts2";
+  height: 100vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cat-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("http://www.funnycatpix.com/_pics/Big_Cat_Eyes.jpg");
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.small-div-img {
-  display: inline-block;
-  position: relative;
-  height: 300px;
-  width: 400px;
-  background-image: url("http://www.funnycatpix.com/_pics/Big_Cat_Eyes.jpg");
-}
-
-.img {
-  max-width: 280px;
-  width: "100%";
-}
 .btn-more {
   display: inline-block;
   padding: 10px;
   color: #61dafb;
   background-color: #ffffff;
   border: 1px solid #61dafb;
-}
-
-.div-img {
-  position: relative;
-  height: 600px;
-  width: 800px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url("http://www.funnycatpix.com/_pics/Big_Cat_Eyes.jpg");
-}
-.div-img-text {
-  position: absolute;
-  color: #ffffff;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .header-subtitle {
@@ -89,16 +68,4 @@
 .container-text {
   padding: 0px 4rem;
   margin-bottom: 3rem;
-}
-
-.block {
-  flex: 1 1 0px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
 }
