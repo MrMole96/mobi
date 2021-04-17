@@ -6,7 +6,7 @@
   grid-template-rows: auto;
 }
 .bigimg-item {
-  min-height: 500px;
+  min-height: 400px;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("http://www.funnycatpix.com/_pics/Big_Cat_Eyes.jpg");
