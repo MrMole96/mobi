@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { removeAsync } from "../redux/houseSlice";
 
 const House = ({ match, history }) => {
-  const [house, setHouse] = useState({});
+  const house = useSelector((state) => state.houseReducer.currentHouse);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetch(
-      `http://mobile-reality-backend.sadek.usermd.net/houses/${match.params.id}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setHouse(data.result);
-      });
-  }, []);
 
   const removeHandler = (id) => {
     dispatch(removeAsync(id));

@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { API_URL } from "../consts/API";
 
 export const houseSlice = createSlice({
   name: "house",
   initialState: {
     houses: [],
+    currentHouse: {},
   },
   reducers: {
     add: (state, action) => {
@@ -17,21 +19,21 @@ export const houseSlice = createSlice({
     get: (state, action) => {
       state.houses = action.payload;
     },
+    getOne: (state, action) => {
+      state.currentHouse = state.houses.find(house=>house._id === action.payload)
+    },
   },
 });
 
 export const addAsync = (house) => async (dispatch) => {
-  const data = await fetch(
-    "http://mobile-reality-backend.sadek.usermd.net/houses",
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(house),
-    }
-  )
+  const data = await fetch(`${API_URL}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(house),
+  })
     .then((response) => response.json())
     .then((data) => data.result);
 
@@ -39,9 +41,7 @@ export const addAsync = (house) => async (dispatch) => {
 };
 
 export const getAsync = () => async (dispatch) => {
-  const data = await fetch(
-    "http://mobile-reality-backend.sadek.usermd.net/houses/all"
-  )
+  const data = await fetch(`${API_URL}/all`)
     .then((response) => response.json())
     .then((data) => data.results);
 
@@ -49,7 +49,7 @@ export const getAsync = () => async (dispatch) => {
 };
 
 export const removeAsync = (id) => async (dispatch) => {
-  await fetch(`http://mobile-reality-backend.sadek.usermd.net/houses/${id}`, {
+  await fetch(`${API_URL}/${id}`, {
     method: "DELETE",
   });
   dispatch(remove(id));
